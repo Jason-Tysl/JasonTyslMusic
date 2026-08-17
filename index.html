@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jason Tysl Music</title>
+  <meta name="description" content="Solo acoustic guitarist and vocalist performing throughout Delaware and Central Ohio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700&family=Urbanist:ital,wght@0,700;0,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #212121;
+      color: rgba(255, 255, 255, 0.639);
+      line-height: 1.875;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bg__image {
+      position: absolute;
+      inset: 0;
+      filter: blur(4px);
+      background: radial-gradient(circle at 50% 20%, rgba(235, 142, 62, 0.18), transparent 75%), #1e1e1e;
+    }
+
+    .bg__squiggles {
+      position: absolute;
+      inset: 0;
+      opacity: 0.2;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.35)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='140' y='140' width='120' height='120' rx='35' transform='rotate(45 200 200)'/%3E%3Crect x='90' y='90' width='220' height='220' rx='65' transform='rotate(45 200 200)'/%3E%3Crect x='40' y='40' width='320' height='320' rx='95' transform='rotate(45 200 200)'/%3E%3Crect x='-60' y='-60' width='120' height='120' rx='35' transform='rotate(45 0 0)'/%3E%3Crect x='-110' y='-110' width='220' height='220' rx='65' transform='rotate(45 0 0)'/%3E%3Crect x='-160' y='-160' width='320' height='320' rx='95' transform='rotate(45 0 0)'/%3E%3Crect x='340' y='-60' width='120' height='120' rx='35' transform='rotate(45 400 0)'/%3E%3Crect x='290' y='-110' width='220' height='220' rx='65' transform='rotate(45 400 0)'/%3E%3Crect x='240' y='-160' width='320' height='320' rx='95' transform='rotate(45 400 0)'/%3E%3Crect x='-60' y='340' width='120' height='120' rx='35' transform='rotate(45 0 400)'/%3E%3Crect x='-110' y='290' width='220' height='220' rx='65' transform='rotate(45 0 400)'/%3E%3Crect x='-160' y='240' width='320' height='320' rx='95' transform='rotate(45 0 400)'/%3E%3Crect x='340' y='340' width='120' height='120' rx='35' transform='rotate(45 400 400)'/%3E%3Crect x='290' y='290' width='220' height='220' rx='65' transform='rotate(45 400 400)'/%3E%3Crect x='240' y='240' width='320' height='320' rx='95' transform='rotate(45 400 400)'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 750px 750px;
+      background-repeat: repeat;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .bg__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        360deg,
+        rgba(26, 26, 26, 0.88) 15%,
+        rgba(26, 26, 26, 0.40) 100%
+      );
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      animation: fadeInDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-22px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .category {
+      display: block;
+      font-size: 0.875em;
+      font-weight: 600;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      color: #EB8E3E;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Urbanist', sans-serif;
+      font-size: clamp(3.5rem, 12vw, 6rem);
+      font-weight: 700;
+      line-height: 1.125;
+      color: #FFFFFF;
+      margin-bottom: 1.5rem;
+    }
+
+    .bio {
+      font-size: 1em;
+      color: rgba(255, 255, 255, 0.639);
+      margin-bottom: 1.5rem;
+    }
+
+    .bio p + p {
+      margin-top: 1rem;
+    }
+
+    .bio strong {
+      color: rgba(255, 255, 255, 0.639);
+      font-weight: 700;
+    }
+
+    .support-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .support-btn {
+      display: inline-block;
+      padding: 0 1.25rem;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      border-radius: 1.625rem;
+      background-color: #EB8E3E;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 1em;
+      font-weight: 400;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.25s ease;
+    }
+
+    .support-btn:hover {
+      transform: scale(1.04);
+    }
+
+    .schedule-card {
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 1rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 1.75rem;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .schedule-card:hover {
+      border-color: rgba(251, 146, 60, 0.25);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .schedule-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fb923c;
+      margin-bottom: 0.85rem;
+    }
+
+    #schedule-list {
+      list-style: none;
+    }
+
+    #schedule-list li {
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    #schedule-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    #schedule-list li:first-child {
+      padding-top: 0;
+    }
+
+    .gig-meta {
+      display: block;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 0.15rem;
+    }
+
+    .ticket-link {
+      display: inline-block;
+      margin-left: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fb923c;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .ticket-link:hover {
+      color: #f97316;
+      text-decoration: underline;
+    }
+
+    .schedule-fallback {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(30, 41, 59, 0.7);
+      color: #f1f5f9;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                  background 0.2s ease,
+                  border-color 0.2s ease,
+                  color 0.2s ease;
+    }
+
+    .btn i {
+      font-size: 1.05rem;
+      width: 1.25rem;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: rgba(51, 65, 85, 0.85);
+      border-color: rgba(148, 163, 184, 0.35);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn--primary {
+      background: #EB8E3E;
+      border-color: #EB8E3E;
+      color: #fff;
+    }
+
+    .btn--primary:hover {
+      background: #d47d35;
+      border-color: #d47d35;
+    }
+
+    .footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    @media (min-width: 640px) {
+      .page {
+        padding: 3rem 1.5rem;
+      }
+      .container {
+        max-width: 460px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="bg__image"></div>
+    <div class="bg__squiggles"></div>
+    <div class="bg__overlay"></div>
+  </div>
+
+  <main class="page">
+    <div class="container">
+      <span class="category">Solo Acoustic Guitar</span>
+      <h1>Jason Tysl</h1>
+
+      <div class="bio">
+        <p><strong>Folk • Americana • Yacht Rock</strong></p>
+        <p>Solo acoustic guitarist and vocalist performing throughout Delaware and Central Ohio.</p>
+      </div>
+
+      <div class="support-actions">
+        <a class="support-btn" href="https://venmo.com/code?user_id=2557036990562304960" target="_blank" rel="noopener noreferrer">Support my music! (Venmo)</a>
+        <a class="support-btn" href="https://cash.app/$JasonTysl" target="_blank" rel="noopener noreferrer">Support my music! (Cash App)</a>
+      </div>
+
+      <div class="bio">
+        <p>Available for breweries, restaurants, patios, private events, and festivals.</p>
+        <p>Follow along for upcoming shows, videos, and booking inquiries.</p>
+      </div>
+
+      <section class="schedule-card" aria-labelledby="schedule-heading">
+        <h2 class="schedule-title" id="schedule-heading">See me:</h2>
+        <ul id="schedule-list" aria-live="polite">
+          <li class="schedule-fallback">Loading upcoming shows…</li>
+        </ul>
+      </section>
+
+      <nav class="actions" aria-label="Social and contact links">
+        <a class="btn" href="https://www.youtube.com/@jasontyslmusic" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          YouTube
+        </a>
+        <a class="btn" href="https://www.instagram.com/jasontyslmusic" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          Instagram
+        </a>
+        <a class="btn" href="https://www.facebook.com/jasontyslmusic" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          Facebook
+        </a>
+        <a class="btn" href="https://calendar.google.com/calendar/embed?src=9eff9d1615501140d1d2edd5e3da9c4c6e3b0cd7495a643961be03d99a350908%40group.calendar.google.com&ctz=America%2FNew_York" target="_blank" rel="noopener noreferrer">
+          <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+          Calendar
+        </a>
+        <a class="btn btn--primary" href="mailto:jasontyslmusic@gmail.com">
+          <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+          Email
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var list = document.getElementById('schedule-list');
+      var fallbackHtml = '<li class="schedule-fallback" style="text-align: center; padding: 0.5rem 0;"><strong style="display:block; color: #f1f5f9; font-size: 0.95rem; margin-bottom: 0.25rem;">Coming soon!</strong>Check back soon for upcoming shows & venues.</li>';
+      var fallbackGigs = ([] || []).filter(function(g) {
+        return g && ((g.venue && g.venue.trim()) || (g.date && g.date.trim()));
+      });
+
+      function escapeHtml(text) {
+        var div = document.createElement('div');
+        div.textContent = text || '';
+        return div.innerHTML;
+      }
+
+      function renderGig(gig) {
+        var line = escapeHtml(gig.date) + ' · ' + escapeHtml(gig.time) + ' · ' + escapeHtml(gig.venue);
+        var location = '<span class="gig-meta">' + escapeHtml(gig.location) + '</span>';
+        var tickets = '';
+
+        if (gig.ticketUrl && gig.ticketUrl.trim()) {
+          tickets = ' <a class="ticket-link" href="' + escapeHtml(gig.ticketUrl) + '" target="_blank" rel="noopener noreferrer">Tickets</a>';
+        }
+
+        return '<li>' + line + tickets + location + '</li>';
+      }
+
+      fetch('gigs.json')
+        .then(function (response) {
+          if (!response.ok) throw new Error('Failed to load schedule');
+          return response.json();
+        })
+        .then(function (gigs) {
+          var validGigs = (Array.isArray(gigs) ? gigs : []).filter(function(g) {
+            return g && ((g.venue && g.venue.trim()) || (g.date && g.date.trim()));
+          });
+
+          if (validGigs.length === 0) {
+            list.innerHTML = fallbackHtml;
+            return;
+          }
+          list.innerHTML = validGigs.map(renderGig).join('');
+        })
+        .catch(function () {
+          if (fallbackGigs && fallbackGigs.length > 0) {
+            list.innerHTML = fallbackGigs.map(renderGig).join('');
+          } else {
+            list.innerHTML = fallbackHtml;
+          }
+        });
+    })();
+  </script>
+</body>
+</html>
