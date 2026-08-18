@@ -39,9 +39,10 @@
     .bg__image {
       position: absolute;
       inset: 0;
-      background-image: url('background.jpg');
+      background: radial-gradient(circle at 50% 20%, rgba(235, 142, 62, 0.18), transparent 75%), 
+                  url('background.jpg') center/cover no-repeat, 
+                  #1e1e1e;
       filter: blur(4px);
-      background: radial-gradient(circle at 50% 20%, rgba(235, 142, 62, 0.18), transparent 75%), #1e1e1e;
     }
 
     .bg__squiggles {
