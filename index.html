@@ -398,7 +398,7 @@
   <script>
     (function () {
       var list = document.getElementById('schedule-list');
-      var fallbackHtml = '<li class="schedule-fallback" style="text-align: center; padding: 0.5rem 0;"><strong style="display:block; color: #f1f5f9; font-size: 0.95rem; margin-bottom: 0.25rem;">Coming soon!</strong>Check back soon for upcoming shows & venues.</li>';
+      var fallbackHtml = '<li class="schedule-fallback" style="text-align: center; padding: 0.5rem 0;"><strong style="display:block; color: #f1f5f9; font-size: 0.95rem; margin-bottom: 0.25rem;">Coming soon!</strong>Check back soon for upcoming shows & venues</li>';
       var fallbackGigs = ([] || []).filter(function(g) {
         return g && ((g.venue && g.venue.trim()) || (g.date && g.date.trim()));
       });
