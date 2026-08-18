@@ -37,6 +37,19 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    a, button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
     .bg {
       position: fixed;
       top: 0;
@@ -175,10 +188,8 @@
       transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.22s ease, box-shadow 0.22s ease;
     }
 
-    .support-btn:hover {
-      transform: scale(1.04);
-      background-color: var(--accent-hover-bg);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    .support-btn:active {
+      transform: scale(0.97);
     }
 
     .schedule-card {
@@ -273,10 +284,11 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                  background-color 0.22s ease,
-                  border-color 0.22s ease,
-                  box-shadow 0.22s ease;
+      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.18s ease,
+                  border-color 0.18s ease,
+                  box-shadow 0.18s ease,
+                  opacity 0.18s ease;
     }
 
     .btn i {
@@ -286,15 +298,10 @@
       color: currentColor;
     }
 
-    .btn:hover {
-      transform: scale(1.04);
-      background: rgba(38, 38, 43, 0.92);
-      border-color: var(--accent-border-hover);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px var(--accent-glow);
-    }
-
     .btn:active {
-      transform: scale(0.97);
+      transform: scale(0.98) translateY(1px);
+      background: rgba(45, 45, 52, 0.95);
+      border-color: var(--accent-border-hover);
     }
 
     .btn--primary {
@@ -307,16 +314,33 @@
       color: #fff;
     }
 
-    .btn--primary:hover {
-      transform: scale(1.04);
+    .btn--primary:active {
+      transform: scale(0.98) translateY(1px);
       background: var(--accent-hover-bg);
-      border-color: var(--accent-hover-bg);
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      opacity: 0.92;
     }
 
-    .btn--primary:hover i {
-      color: #fff;
+    @media (hover: hover) and (pointer: fine) {
+      .support-btn:hover {
+        transform: scale(1.02) translateY(-1px);
+        background-color: var(--accent-hover-bg);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      }
+
+      .btn:hover {
+        transform: scale(1.02) translateY(-1px);
+        background: rgba(38, 38, 43, 0.92);
+        border-color: var(--accent-border-hover);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px var(--accent-glow);
+      }
+
+      .btn--primary:hover {
+        transform: scale(1.02) translateY(-1px);
+        background: var(--accent-hover-bg);
+        border-color: var(--accent-hover-bg);
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      }
     }
 
     .footer {
@@ -398,7 +422,7 @@
   <script>
     (function () {
       var list = document.getElementById('schedule-list');
-      var fallbackHtml = '<li class="schedule-fallback" style="text-align: center; padding: 0.5rem 0;"><strong style="display:block; color: #f1f5f9; font-size: 0.95rem; margin-bottom: 0.25rem;">Coming soon!</strong>Check back soon for upcoming shows & venues</li>';
+      var fallbackHtml = '<li class="schedule-fallback" style="text-align: center; padding: 0.5rem 0;"><strong style="display:block; color: #f1f5f9; font-size: 0.95rem; margin-bottom: 0.25rem;">Coming soon!</strong>Check back soon for upcoming shows & venues.</li>';
       var fallbackGigs = ([] || []).filter(function(g) {
         return g && ((g.venue && g.venue.trim()) || (g.date && g.date.trim()));
       });
