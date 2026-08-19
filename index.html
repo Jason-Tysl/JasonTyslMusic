@@ -10,51 +10,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700&family=Urbanist:ital,wght@0,700;0,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
-    /* dark orange version */
-    /* :root {
-      --accent: #D97D36;
-      --accent-hover-bg: rgb(182, 105, 45);
-      --accent-border: rgba(217, 125, 54, 0.42);
-      --accent-border-hover: rgba(217, 125, 54, 0.78);
-      --accent-glow: rgba(217, 125, 54, 0.28);
-    } */
-
-    /* bright orange version */
-    /* :root {
-      --accent: #EB8E3E;
-      --accent-hover-bg: rgb(197, 119, 52);
-      --accent-border: rgba(235, 142, 62, 0.42);
-      --accent-border-hover: rgba(235, 142, 62, 0.78);
-      --accent-glow: rgba(235, 142, 62, 0.28);
-    } */
-
-    /* yellow version */
-    /* :root {
-      --accent: #E5A93C;
-      --accent-hover-bg: rgb(192, 142, 50);
-      --accent-border: rgba(229, 169, 60, 0.42);
-      --accent-border-hover: rgba(229, 169, 60, 0.78);
-      --accent-glow: rgba(229, 169, 60, 0.28);
-    } */
-
-    /* copper version */
     :root {
+      /* Accents (Copper Sunburst & Golden Hour) */
       --accent: #C86235;
-      --accent-hover-bg: rgb(168, 82, 45);
-      --accent-border: rgba(200, 98, 53, 0.42);
-      --accent-border-hover: rgba(200, 98, 53, 0.78);
-      --accent-glow: rgba(200, 98, 53, 0.28);
-      --title: #f3bb54;
-    }
+      --accent-hover: #A8522D;
+      --accent-border: #C862356B;
+      --accent-border-hover: #C86235C7;
+      --accent-glow: #C8623547;
+      --title: #F3BB54;
 
-    /* burgundy version */
-    /* :root {
-      --accent: #C05850;
-      --accent-hover-bg: rgb(161, 74, 67);
-      --accent-border: rgba(192, 88, 80, 0.42);
-      --accent-border-hover: rgba(192, 88, 80, 0.78);
-      --accent-glow: rgba(192, 88, 80, 0.28);
-    } */
+      /* Page & Text Colors */
+      --page-bg: #1B1715;
+      --text-main: rgba(255, 255, 255, 0.68);
+      --text-heading: #FFFFFF;
+      --text-muted: #B8A89C;
+
+      /* Schedule Card (Warm Woodsmoke Glass) */
+      --card-bg: rgba(31, 22, 17, 0.55);
+      --card-border: rgba(184, 161, 148, 0.18);
+      --card-divider: rgba(243, 187, 84, 0.5);
+
+      /* Social Action Buttons */
+      --btn-bg: rgba(31, 22, 17, 0.55);
+      --btn-bg-hover: rgba(52, 36, 27, 0.95);
+      --btn-bg-active: rgba(39, 26, 19, 0.98);
+      --btn-border: var(--accent-border);
+      --btn-border-hover: var(--accent-border-hover);
+      --btn-text: var(--accent);
+    }
 
     *, *::before, *::after {
       box-sizing: border-box;
@@ -69,8 +52,8 @@
     body {
       min-height: 100vh;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background-color: #212121;
-      color: rgba(255, 255, 255, 0.639);
+      background-color: var(--page-bg);
+      color: var(--text-main);
       line-height: 1.875;
       -webkit-font-smoothing: antialiased;
     }
@@ -124,7 +107,7 @@
     .bg__squiggles {
       position: absolute;
       inset: 0;
-      opacity: 0.4;
+      opacity: 0.35;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.45)' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='140' y='140' width='120' height='120' rx='35' transform='rotate(45 200 200)'/%3E%3Crect x='90' y='90' width='220' height='220' rx='65' transform='rotate(45 200 200)'/%3E%3Crect x='40' y='40' width='320' height='320' rx='95' transform='rotate(45 200 200)'/%3E%3Crect x='-60' y='-60' width='120' height='120' rx='35' transform='rotate(45 0 0)'/%3E%3Crect x='-110' y='-110' width='220' height='220' rx='65' transform='rotate(45 0 0)'/%3E%3Crect x='-160' y='-160' width='320' height='320' rx='95' transform='rotate(45 0 0)'/%3E%3Crect x='340' y='-60' width='120' height='120' rx='35' transform='rotate(45 400 0)'/%3E%3Crect x='290' y='-110' width='220' height='220' rx='65' transform='rotate(45 400 0)'/%3E%3Crect x='240' y='-160' width='320' height='320' rx='95' transform='rotate(45 400 0)'/%3E%3Crect x='-60' y='340' width='120' height='120' rx='35' transform='rotate(45 0 400)'/%3E%3Crect x='-110' y='290' width='220' height='220' rx='65' transform='rotate(45 0 400)'/%3E%3Crect x='-160' y='240' width='320' height='320' rx='95' transform='rotate(45 0 400)'/%3E%3Crect x='340' y='340' width='120' height='120' rx='35' transform='rotate(45 400 400)'/%3E%3Crect x='290' y='290' width='220' height='220' rx='65' transform='rotate(45 400 400)'/%3E%3Crect x='240' y='240' width='320' height='320' rx='95' transform='rotate(45 400 400)'/%3E%3C/g%3E%3C/svg%3E");
       background-size: 750px 750px;
       background-repeat: repeat;
@@ -137,8 +120,8 @@
       inset: 0;
       background: linear-gradient(
         360deg,
-        rgba(26, 26, 26, 0.88) 15%,
-        rgba(26, 26, 26, 0.40) 100%
+        rgba(23, 18, 15, 0.92) 15%,
+        rgba(23, 18, 15, 0.45) 100%
       );
     }
 
@@ -184,13 +167,13 @@
       font-size: clamp(3.5rem, 12vw, 6rem);
       font-weight: 700;
       line-height: 1.125;
-      color: #FFFFFF;
+      color: var(--text-heading);
       margin-bottom: 1.5rem;
     }
 
     .bio {
       font-size: 1em;
-      color: rgba(255, 255, 255, 0.639);
+      color: var(--text-main);
       margin-bottom: 1.5rem;
     }
 
@@ -199,7 +182,7 @@
     }
 
     .bio strong {
-      color: rgba(255, 255, 255, 0.639);
+      color: var(--text-heading);
       font-weight: 700;
     }
 
@@ -220,7 +203,7 @@
       color: #FFFFFF;
       font-family: inherit;
       font-size: 1em;
-      font-weight: 400;
+      font-weight: 500;
       text-decoration: none;
       white-space: nowrap;
       transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.22s ease, box-shadow 0.22s ease;
@@ -231,8 +214,8 @@
     }
 
     .schedule-card {
-      background: rgba(30, 41, 59, 0.55);
-      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 1rem;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -245,7 +228,7 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--title);
       margin-bottom: 0.85rem;
     }
 
@@ -255,9 +238,9 @@
 
     #schedule-list li {
       font-size: 0.9rem;
-      color: #e2e8f0;
+      color: #F1ECE6;
       padding: 0.55rem 0;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      border-bottom: 1px solid var(--card-divider);
     }
 
     #schedule-list li:last-child {
@@ -272,7 +255,7 @@
     .gig-meta {
       display: block;
       font-size: 0.8rem;
-      color: #94a3b8;
+      color: var(--text-muted);
       margin-top: 0.15rem;
     }
 
@@ -287,13 +270,13 @@
     }
 
     .ticket-link:hover {
-      color: var(--accent-hover-bg);
+      color: var(--accent-hover);
       text-decoration: underline;
     }
 
     .schedule-fallback {
       font-size: 0.9rem;
-      color: #94a3b8;
+      color: var(--text-muted);
       font-style: italic;
     }
 
@@ -311,9 +294,9 @@
       width: 100%;
       padding: 0.85rem 1.25rem;
       border-radius: 999px;
-      border: 1px solid var(--accent-border);
-      background: rgba(24, 24, 27, 0.82);
-      color: var(--accent);
+      border: 1px solid var(--btn-border);
+      background: var(--btn-bg);
+      color: var(--btn-text);
       font-family: inherit;
       font-size: 0.92rem;
       font-weight: 600;
@@ -322,11 +305,10 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-                  background-color 0.18s ease,
-                  border-color 0.18s ease,
-                  box-shadow 0.18s ease,
-                  opacity 0.18s ease;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.22s ease,
+                  border-color 0.22s ease,
+                  box-shadow 0.22s ease;
     }
 
     .btn i {
@@ -337,46 +319,45 @@
     }
 
     .btn:active {
-      transform: scale(0.98) translateY(1px);
-      background: rgba(45, 45, 52, 0.95);
-      border-color: var(--accent-border-hover);
+      transform: scale(0.97);
+      background: var(--btn-bg-active);
+      border-color: var(--btn-border-hover);
     }
 
     .btn--primary {
       background: var(--accent);
       border-color: var(--accent);
-      color: #fff;
+      color: #FFFFFF;
     }
 
     .btn--primary i {
-      color: #fff;
+      color: #FFFFFF;
     }
 
     .btn--primary:active {
-      transform: scale(0.98) translateY(1px);
-      background: var(--accent-hover-bg);
-      opacity: 0.92;
+      transform: scale(0.97);
+      background: var(--accent-hover);
     }
 
     @media (hover: hover) and (pointer: fine) {
       .support-btn:hover {
-        transform: scale(1.02) translateY(-1px);
-        background-color: var(--accent-hover-bg);
+        transform: scale(1.04);
+        background-color: var(--accent-hover);
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
       }
 
       .btn:hover {
-        transform: scale(1.02) translateY(-1px);
-        background: rgba(38, 38, 43, 0.92);
-        border-color: var(--accent-border-hover);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px var(--accent-glow);
+        transform: scale(1.04);
+        background: var(--btn-bg-hover);
+        border-color: var(--btn-border-hover);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 16px var(--accent-glow);
       }
 
       .btn--primary:hover {
-        transform: scale(1.02) translateY(-1px);
-        background: var(--accent-hover-bg);
-        border-color: var(--accent-hover-bg);
-        color: #fff;
+        transform: scale(1.04);
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
+        color: #FFFFFF;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
       }
     }
